@@ -2,6 +2,8 @@
 
 class BaseController extends Controller {
 
+	protected $layout = 'template.template';
+
 	/**
 	 * Setup the layout used by the controller.
 	 *
@@ -9,10 +11,22 @@ class BaseController extends Controller {
 	 */
 	protected function setupLayout()
 	{
+
+
+		$email = base64_encode('lmdbluis@gmail.com');
+		$phone = base64_encode('34859662');
+
+		
+		
+		$layoutParameters = compact('email', 'phone');
+		
 		if ( ! is_null($this->layout))
 		{
-			$this->layout = View::make($this->layout);
+			$this->layout = View::make($this->layout, $layoutParameters);
 		}
+
+		$this->layout->with(['name'=>'Luis']);
+
 	}
 
 }
