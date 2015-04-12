@@ -58,7 +58,7 @@ Licence URI: http://www.os-templates.com/template-terms
 						<p>&nbsp;</p>
 						<p>&nbsp;</p>
 						<p>&nbsp;</p>
-						@if($currentUser->a21)
+						@if(isset($currentUser) && $currentUser->a21)
 							<img src="/images/apple.png">
 						@endif
 						<p>&nbsp;</p>
