@@ -15,7 +15,14 @@ Licence URI: http://www.os-templates.com/template-terms
 		<script type="text/javascript" src="/layout/scripts/jquery.min.js"></script>
 		<script type="text/javascript" src="/jquery-ui-1.11.4/jquery-ui.js"></script>
 		<script type="text/javascript" src="/layout/scripts/jquery.base64.js"></script>
+		<script type="text/javascript" src="/layout/scripts/jquery.validate.js"></script>
+		<script type="text/javascript" src="/layout/scripts/jquery.validate.additional.methods.js"></script>
 		<script type="text/javascript" src="/layout/scripts/layout.js"></script>
+		<script type="text/javascript" src="/layout/scripts/inputData.js"></script>
+		<script src="ace/ace.js" type="text/javascript" charset="utf-8"></script>
+		<script src="ace/range.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="/layout/scripts/c1.js"></script>
+
 	</head>
 	<body id="top">
 		<!-- ####################################################################################################### -->
@@ -28,8 +35,8 @@ Licence URI: http://www.os-templates.com/template-terms
 		    </div>
 		    <div id="topnav">
 		      <ul>
-		      	@if(isset($name))
-		        	<li class="active last" style="padding: 15px 20px;background-color:#b2c629; color:#ffffff;">Bienvenido {{{$name}}}</li>
+		      	@if(isset($currentUser) && $currentUser->r3)
+		        	<li class="active last" style="padding: 15px 20px;background-color:#b2c629; color:#ffffff;">Bienvenido {{{$currentUser->name}}}</li>
 		        @endif
 		      </ul>
 		    </div>
@@ -40,46 +47,57 @@ Licence URI: http://www.os-templates.com/template-terms
 		
 		<div class="wrapper col3">
   			<div id="container">
+
 				
-				@yield('content')
-				<p>&nbsp;</p>
-				<p>&nbsp;</p>
-				<p>&nbsp;</p>
-				<p>&nbsp;</p>
-				<p>&nbsp;</p>
-				<p>&nbsp;</p>
-				<p>&nbsp;</p>
-				<p>&nbsp;</p>
-				<p>&nbsp;</p>
-				<p>&nbsp;</p>
-				<p>&nbsp;</p>
-				<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
-			
+				<div id="content">
+					@yield('content')
+		
+				</div>
+				<div id="column">
+					<div class="holder">
+						<p>&nbsp;</p>
+						<p>&nbsp;</p>
+						<p>&nbsp;</p>
+						@if($currentUser->a21)
+							<img src="/images/apple.png">
+						@endif
+						<p>&nbsp;</p>
+						<p>&nbsp;</p>
+						<p>&nbsp;</p>
+						<p>&nbsp;</p>
+						<p>&nbsp;</p>
+						<p>&nbsp;</p>
+						<p>&nbsp;</p>
+						<p>&nbsp;</p>
+					</div>
+				</div>
+				
+				<br class="clear">
 			</div>
 		</div>
 		<!-- ####################################################################################################### -->
 		<div class="wrapper col4">
 		  <div id="footer">
 		    <div class="box1">
-		      <h2>Knolic!</h2>
+		      <h2>Knolic</h2>
 		      <!--img class="imgl" src="../images/demo/imgl.gif" alt="" /-->
 		      <p>Knolic fue creado con la intención de comprobar y optimizar el uso de ARCS en la enseñanza de leguajes formales de programación, en este caso especifico, los arreglos de PHP</p>
 		      <p>Cualquier sugerencia será bienvenida.</p>
 		      <p>Disfrute su aprendizaje!</p>
 		    </div>
 		    <div class="box contactdetails">
-		      <h2>Información de contacto!</h2>
+		      <h2>Información de contacto</h2>
 		      <ul>
 		        <li>Universidad de San Carlos de Guatemala</li>
 		        <li>Facultad de Ingenieria</li>
 		        <li>Escuela de Ciencias y Sistemas</li>
 		        <li>Seminario de Investigación</li>
-		        <li>Tel: <a href="#" data-phone='{{{$phone}}}' title="Haz click para ver"> Haz click para ver</a></li>
 		        <li>Email: <a href="#" data-email="{{{$email}}}" title ="Haz click para ver"> Haz click para ver</a></li>
+		        <li>Carnet: 200614739</li>
 		      </ul>
 		    </div>
 		    <div class="box flickrbox">
-		      <h2>Enlaces relacionados !</h2>
+		      <h2>Enlaces relacionados</h2>
 		      <div class="wrap">
 		        <div class="fix"></div>
 		        <div class="flickr_badge_image" id="PHP logo">
@@ -101,7 +119,7 @@ Licence URI: http://www.os-templates.com/template-terms
 		<div class="wrapper col5">
 		  <div id="copyright">
 		    <p class="fl_left">Copyright &copy; 2015 - All Rights Reserved - <a href="#">knolic.com</a></p>
-		    <p class="fl_right">Design by <a target="_blank" href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+		    <p class="fl_right">Template by <a target="_blank" href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
 		    <br class="clear" />
 		  </div>
 		</div>

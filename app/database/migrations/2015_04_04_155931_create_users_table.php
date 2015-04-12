@@ -19,8 +19,10 @@ class CreateUsersTable extends Migration {
 			$table->timestamps();
 
 			$table->string('email', 1023);
-			$table->string('currentStep', 255);
-			$table->integer('currentPage', 10)->unsigned();
+			$table->string('name', 1023);
+			$table->date('born_date');
+			$table->string('current_step', 255);
+			$table->integer('current_page');
 			$table->boolean('a1');
 			$table->boolean('a21');
 			$table->boolean('a22');
