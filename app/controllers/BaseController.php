@@ -15,15 +15,16 @@ class BaseController extends Controller {
 
 		$email = base64_encode('lmdbluis@gmail.com');
 		$phone = base64_encode('34859662');
+		
 		$currentUser = Users::getCurrentUser();
 
+		View::share(compact('email', 'phone', 'currentUser'));
 		
 		
-		$layoutParameters = compact('email', 'phone', 'currentUser');
 		
 		if ( ! is_null($this->layout))
 		{
-			$this->layout = View::make($this->layout, $layoutParameters);
+			$this->layout = View::make($this->layout);
 		}
 		$this->layout->with(['name'=>'Luis']);
 

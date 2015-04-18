@@ -33,6 +33,7 @@ $(document).ready(function(){
 	var submitEvt = function(evt){
 		evt.preventDefault();
 		$('#inputData').validate({
+			ignore: "",
 			rules: {
 				name : { 	required:true },
 				email: { 	required:true ,

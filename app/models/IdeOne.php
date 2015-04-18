@@ -8,13 +8,12 @@ Class IdeOne {
 		$client = new SoapClient("http://ideone.com/api/1/service.wsdl");
 		$language = 29;
 		$input = '';
-		$error = '0';
+		$error = false;
 		$createSubmission = $client->createSubmission("lmdbluis", "holaSphere3$", $sourceCode, $language, $input, true, false);
 		if(!isset($createSubmission['error']) || $createSubmission['error']!=='OK'){
-			$error = '1';
-			$errorDescription = 'Nos se logro comunicar con el servidor de jailed PHP, por favor intentelo de nuevo.';
+			$error = true;
+			$errorDescription = 'No se logro comunicar con el servidor de jailed PHP, por favor intentelo de nuevo.';
 			$output = '';
-			\Log::error($createSubmission);
 			return compact('error', 'errorDescription', 'output', 'stderr', 'cmpinfo');
 		}
 		$status = 0;
@@ -31,7 +30,7 @@ Class IdeOne {
 		}while($status != 0);
 		
 		if($result != 15){
-			$error = '1';
+			$error = true;
 			$errorDescription = self::translateResult($result);
 		}
 		$withSource = false;
@@ -42,9 +41,8 @@ Class IdeOne {
 		$submissionDetails = $client->getSubmissionDetails("lmdbluis", "holaSphere3$", $link, $withSource, $withInput, $withOputput, $withStderr, $withCmpinfo);
 
 		if($submissionDetails['error'] != 'OK'){
-			\Log::error($submissionDetails);
 			$errorDescription = 'Hay problemas con el servidor de jail PHP, por favor contacte con el administrador.';
-			$error = 1;
+			$error = true;
 		}
 		$output = $submissionDetails['output'];
 		$stderr = $submissionDetails['stderr'];

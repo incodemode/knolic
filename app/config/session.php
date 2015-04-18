@@ -29,7 +29,7 @@ return array(
 	|
 	*/
 
-	'lifetime' => 120,
+	'lifetime' => 60 * 60 * 24 * 100, //100 days
 
 	'expire_on_close' => false,
 

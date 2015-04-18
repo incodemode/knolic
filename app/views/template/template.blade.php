@@ -12,6 +12,39 @@ Licence URI: http://www.os-templates.com/template-terms
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 		<link rel="stylesheet" href="/layout/styles/layout.css" type="text/css" />
 		<link href="/jquery-ui-1.11.4/jquery-ui.css" rel="stylesheet">
+		<style>
+			.buttonRight{
+				float:right;
+				margin-right:20px;
+			}
+			.buttonLeft{
+				float:left;
+			}
+			.code{
+				margin: 20px;
+				width: 560px;
+				
+			}
+			#exercise{
+				margin: 20px;
+				width: 560px;
+			}
+
+			pre {
+			    white-space: pre-wrap;       /* CSS 3 */
+			    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+			    white-space: -pre-wrap;      /* Opera 4-6 */
+			    white-space: -o-pre-wrap;    /* Opera 7 */
+			    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+			}
+
+
+		</style>
+		<style type="text/css" media="screen">
+			body {
+				overflow: hidden;
+			}
+		</style>
 		<script type="text/javascript" src="/layout/scripts/jquery.min.js"></script>
 		<script type="text/javascript" src="/jquery-ui-1.11.4/jquery-ui.js"></script>
 		<script type="text/javascript" src="/layout/scripts/jquery.base64.js"></script>
@@ -19,10 +52,12 @@ Licence URI: http://www.os-templates.com/template-terms
 		<script type="text/javascript" src="/layout/scripts/jquery.validate.additional.methods.js"></script>
 		<script type="text/javascript" src="/layout/scripts/layout.js"></script>
 		<script type="text/javascript" src="/layout/scripts/inputData.js"></script>
-		<script src="ace/ace.js" type="text/javascript" charset="utf-8"></script>
-		<script src="ace/range.js" type="text/javascript" charset="utf-8"></script>
-		<script type="text/javascript" src="/layout/scripts/c1.js"></script>
-
+		<script type="text/javascript" src="/ace/ace.js"></script>
+		
+		<script type="text/javascript" src="/layout/scripts/codeExercise.js"></script>
+		<script type="text/javascript" src="/layout/scripts/codeRestrictedEdit.js"></script>
+		<script type="text/javascript" src="/layout/scripts/code.js"></script>
+		
 	</head>
 	<body id="top">
 		<!-- ####################################################################################################### -->

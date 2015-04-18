@@ -21,7 +21,7 @@ class InputDataController extends BaseController{
 		if($possibleUser){
 
 			if($possibleUser->born_date == $born_date){
-				Log::info($possibleUser);
+				Session::put('email', $email);
 				$url = UrlGenerator::getCurrentUrl($possibleUser);
 				return Redirect::to($url);
 
