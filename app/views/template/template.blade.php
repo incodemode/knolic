@@ -29,7 +29,15 @@ Licence URI: http://www.os-templates.com/template-terms
 				margin: 20px;
 				width: 560px;
 			}
+			.nextButton{
 
+				float:right;
+				background-color:#95ad19;
+				height:40px;
+				width:200px; 
+				font-weight: 900;
+
+			}
 			pre {
 			    white-space: pre-wrap;       /* CSS 3 */
 			    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
@@ -57,6 +65,7 @@ Licence URI: http://www.os-templates.com/template-terms
 		<script type="text/javascript" src="/layout/scripts/codeExercise.js"></script>
 		<script type="text/javascript" src="/layout/scripts/codeRestrictedEdit.js"></script>
 		<script type="text/javascript" src="/layout/scripts/code.js"></script>
+		<script type="text/javascript" src="/layout/scripts/pager.js"></script>
 		
 	</head>
 	<body id="top">
@@ -70,9 +79,16 @@ Licence URI: http://www.os-templates.com/template-terms
 		    </div>
 		    <div id="topnav">
 		      <ul>
-		      	@if(isset($currentUser) && $currentUser->r3)
-		        	<li class="active last" style="padding: 15px 20px;background-color:#b2c629; color:#ffffff;">Bienvenido {{{$currentUser->name}}}</li>
-		        @endif
+		      	<li class="active last" style="padding: 15px 20px;background-color:#b2c629; color:#ffffff;">Bienvenido
+			      	@if(isset($currentUser) && $currentUser->r3)
+			        	 {{{$currentUser->name}}}
+			        	 <ul>
+			        	 	<li>
+			        	 		<a href="/logout">Cerrar sesión</a>
+			        	 	</li>
+			        	 </ul>
+			        @endif
+		        </li>
 		      </ul>
 		    </div>
 		    <br class="clear" />

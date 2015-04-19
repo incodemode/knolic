@@ -10,6 +10,9 @@ class FirstLearnController extends BaseController{
 		}
 
 		$user = Users::getCurrentUser();
+		$user->updateLocation('learn_1', $page);
+
+		$user = Users::getCurrentUser();
 		if(!$user){
 
 			return Redirect::to(route('home'));

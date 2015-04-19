@@ -11,7 +11,7 @@ $(document).ready(function(){
     function initEditor($code){
     	var initialCode = $code.text();
     	var codeLines =  initialCode.split("\n", -1);
-    	var height = codeLines.length * 14;
+    	var height = codeLines.length * 15;
     	$code.css('height', height + 'px');
 
     	var $codeReplacement = $code.clone();

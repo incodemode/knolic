@@ -2,15 +2,15 @@
 
 	<p data-executePanel>
         @if(isset($executeUrl) && $executeUrl != '')
-            <input type="button" value="Ejecutar" data-executeButton data-executeUrl="{{$executeUrl}}">
+            <input type="button" value="Ejecutar Código" data-executeButton data-executeUrl="{{$executeUrl}}" style="background-color:#ADD8E6;height:40px;width:150px; font-weight: 900;">
         @else
-            <input type="button" value="Ejecutar" data-executeButton data-executeUrl="{{route('generic_code.ajax_execute')}}">
+            <input type="button" value="Ejecutar" data-executeButton data-executeUrl="{{route('generic_code.ajax_execute')}}" style="background-color:#ADD8E6;height:30px; font-weight: 900;">
         @endif
 		
-        <input type="button" value="Deshacer todos los cambios" tabindex="5" data-undoButton>
+        <input type="button" value="Deshacer todos los cambios" tabindex="5" data-undoButton style="background-color:#FFa500;height:30px;">
 		
         @if(isset($nextUrl) && $nextUrl != '')
-            <a href="{{$nextUrl}}" title="Siguiente" style="float:right; display:none; margin-left:20px;" data-nextButton> Siguiente Página »</a>
+            <input type="button" value="Siguiente Página »" class="nextButton" data-nextButton data-nextUrl="{{$nextUrl}}" style="display:none;">
         @endif
         
         <span class="buttonLeft" style="display:none;" data-loading><img src="/images/loading.gif" alt="loading" style="width:18px; height:18px;"> &nbsp;&nbsp;&nbsp;</span>

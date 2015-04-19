@@ -4,7 +4,25 @@ class InputDataController extends BaseController{
 
 	public function showInputData(){
 
+		$user = Users::getCurrentUser();
+		
+		if($user){
+			$currentUrl = UrlGenerator::getCurrentUrl($user);
+			return Redirect::to($currentUrl);
+		}
+
 		$this->layout->content = View::make('steps.inputData');
+
+	}
+
+	public function showAlreadyLoggedIn(){
+
+	}
+
+	public function logout(){
+
+		Session::forget('email');
+		return Redirect::to(route('inputData_0'));
 
 	}
 
@@ -34,9 +52,9 @@ class InputDataController extends BaseController{
 		}
 
 		$userData = Input::only(['email', 'name', 'born_date']);
-		Users::create($userData);
+		$currentUser = Users::create($userData);
 		Session::put('email', $email);
-		$this->layout->content = View::make('steps.inputData');
+		return Redirect::to(UrlGenerator::getCurrentUrl($currentUser));
 
 	}
 }
