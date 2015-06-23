@@ -28,8 +28,8 @@ Class IdeOne {
 				sleep(3);
 			}
 		}while($status != 0);
-		
-		if($result != 15){
+		$acceptedStatus = [12,15];
+		if(!in_array($result, $acceptedStatus) ){
 			$error = true;
 			$errorDescription = self::translateResult($result);
 		}
@@ -48,7 +48,11 @@ Class IdeOne {
 		$stderr = $submissionDetails['stderr'];
 		$cmpinfo = $submissionDetails['cmpinfo'];
 
-		return compact('error', 'errorDescription', 'output', 'stderr', 'cmpinfo');
+		$stderr = str_replace('PHP Fatal error:', 'PHP Interpreter error:', $stderr);
+
+		$ans = compact('error', 'errorDescription', 'output', 'stderr', 'cmpinfo');
+		
+		return $ans;
 
 	}
 
@@ -63,7 +67,7 @@ Class IdeOne {
 			case 13:
 				return 'Limite de tiempo excedido.';
 			case 15:
-				return 'Exito!';
+				return 'Excelente!';
 			case 17:
 				return 'Limite de memoria alcanzado.';
 			case 19:

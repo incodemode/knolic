@@ -1,4 +1,4 @@
-	<h2>Primera fase</h2>
+	<h2>Area de aprendizaje</h2>
 	<p>La primera fase incluirá los siguientes temas:</p>
 		<ul>
 			<li> Definición </li>

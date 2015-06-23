@@ -46,4 +46,36 @@ $arr[2] = 'Tercer valor';
 print_r($arr);
 </pre>
 @include('code.execute_panel')
-	
+<p>&nbsp;</p>
+<h2>Ejercicio</h2>
+<p>Inicialize la variable $arr como un array con los valores 'libro', 'revista' y sus índices 1, 2 respectivamente.</p>
+<p>Tambien agregue a $otroArr el valor 'chicles' con el índice 3.</p>
+<div>
+	<div class="passedFront"></div>
+@if(isset($exercise) && $exercise && $exercise->code)
+<pre data-code data-restrictedEdit data-exercise data-passed="{{$exercise->passed}}">{{{$exercise->code}}}</pre>
+@else
+<pre data-code data-restrictedEdit data-exercise>
+&lt;?php
+$c = rand(5,10);
+$otroArr = [1 => 'dulces', 2 => 'chocolates'];
+//[inicio] Escriba su respuesta despues de esta linea:
+
+/********************************/
+/***  escriba su código aqui ****/
+/********************************/
+
+
+
+
+//[fin] su código termina en esta linea
+if(ejecutarTests()): echo "Excelente! puedes pasar a la siguiente página.";
+else: error_log("Ocurrio un error, intentelo de nuevo.");
+endif;
+</pre>
+@endif
+@include('code.execute_panel', ['nextUrl' => $nextUrl, 'executeUrl' => URL::current()])
+</div>
+
+
+

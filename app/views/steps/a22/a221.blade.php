@@ -58,7 +58,7 @@ if(  pasarTests()  ){
     error_log('Ha fallado algún test, intentalo de nuevo.');
 }
 </pre>
-@include('code.execute_panel', [ 'nextUrl' => route('learn_1', ['page' => 0]),
+@include('code.execute_panel', [ 'nextUrl' => route('first_learn', ['page' => 0]),
                                 'executeUrl' => route('a221')])
 
 

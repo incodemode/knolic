@@ -28,8 +28,6 @@ class Users extends Eloquent{
 	}
 
 	public static function getCurrentUser(){
-		Log::info('getCurrentUser session email');
-		Log::info(Session::get('email'));
 
 		$email = Session::get('email');
 		if($email == null){
@@ -41,14 +39,36 @@ class Users extends Eloquent{
 	}
 
 	public static function findByEmail($email){
-		Log::info('findByEmail ' . $email);
+
 		$user = Users::where('email', '=', $email)->first();
 		return $user;
 
 	}
 	public function updateLocation($step, $page = 0){
+		
 		$this->current_step = $step;
 		$this->current_page = $page;
 		$this->save();
+
 	}
+
+	public function exercises(){
+
+		return $this->hasMany('Exercises', 'user_id');
+
+	}
+
+	public function testResults(){
+
+		return $this->exercises()->where('step', '=', 'tests')->orderBy('page', 'asc');
+
+	}
+
+	public function getTestTriesSumAttribute(){
+
+		$testTriesSum = $this->testResults()->where('passed','=','1')->sum('tries');
+		return $testTriesSum;
+
+	}
+	
 }

@@ -21,3 +21,29 @@ if($existeD){
 }
 </pre>
 @include('code.execute_panel')
+
+
+
+<p>&nbsp;</p>
+<h2>Ejercicio</h2>
+<p>Usando array_key_exists(...), coloque en la variable $respuesta "existe" o "no existe" dependiendo de si existe o no el indice 3 en el array $arr.</p>
+<div>
+	<div class="passedFront"></div>
+@if(isset($exercise) && $exercise && $exercise->code)
+<pre data-code data-restrictedEdit data-exercise data-passed="{{$exercise->passed}}">{{{$exercise->code}}}</pre>
+@else
+<pre data-code data-restrictedEdit data-exercise>
+&lt;?php
+$arr = [rand(0,1) => 'queso', rand(2,3) => 'pan', rand(4,5) => 'zanahoria'];
+//[inicio] Escriba su respuesta despues de esta linea:
+
+$respuesta = null;
+
+//[fin] su código termina en esta linea
+if(ejecutarTests()): echo "Excelente! puedes pasar a la siguiente página.";
+else: error_log("Intentalo de nuevo.");
+endif;
+</pre>
+@endif
+@include('code.execute_panel', ['nextUrl' => $nextUrl, 'executeUrl' => URL::current()])
+</div>

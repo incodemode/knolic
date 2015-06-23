@@ -17,7 +17,7 @@ class LocalCodeExecutor{
 		$cmpinfo = '';
 		$errorDescription = '';
 
-		return compact('error', 'errorDescription', 'output', 'stderr', 'cmpinfo');
+		return compact('code', 'error', 'errorDescription', 'output', 'stderr', 'cmpinfo');
 	}
 
 	public static function getTempFileName(){

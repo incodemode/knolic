@@ -38,6 +38,29 @@ Licence URI: http://www.os-templates.com/template-terms
 				font-weight: 900;
 
 			}
+			.yellowButton{
+
+				background-color:#FFa500;
+				height:30px;
+				width:171px; 
+
+			}
+			.greenButton{
+
+				background-color:#95ad19;
+				height:40px;
+				width:171px; 
+				font-weight: 900;
+
+			}
+			.blueButton{
+
+				background-color:#ADD8E6;
+				height:40px;
+				width:171px; 
+				font-weight: 900;
+
+			}
 			pre {
 			    white-space: pre-wrap;       /* CSS 3 */
 			    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
@@ -45,8 +68,34 @@ Licence URI: http://www.os-templates.com/template-terms
 			    white-space: -o-pre-wrap;    /* Opera 7 */
 			    word-wrap: break-word;       /* Internet Explorer 5.5+ */
 			}
-
-
+			#inputData label, #reinputData label {
+				display:block;
+				clear:both;
+			}
+			.passedFront{
+				position:absolute; 
+				z-index:50; 
+				background-image: url('/images/done.gif'); 
+				background-repeat: no-repeat;
+				background-position: center center; 
+				background-size:contain; 
+				display:none;
+			}
+			@if(isset($currentUser) && $currentUser && $currentUser->a1)
+				.ace-tm{
+					background-color: {{$a1SuperLightBackground}};
+				}
+				#container{
+					background-color: {{$a1LightBackground}} !important;
+					padding: 20px;
+				}
+				.wrapper.col3{
+					background-color: {{$a1StrongBackground}};	
+				}
+				#column .holder{
+					background-color: {{$a1SuperLightBackground}};
+				}
+			@endif
 		</style>
 		<style type="text/css" media="screen">
 			body {
@@ -67,8 +116,10 @@ Licence URI: http://www.os-templates.com/template-terms
 		<script type="text/javascript" src="/layout/scripts/code.js"></script>
 		<script type="text/javascript" src="/layout/scripts/pager.js"></script>
 		
+
+		<script src='https://www.google.com/recaptcha/api.js?&hl=es'></script>
 	</head>
-	<body id="top">
+	<body id="top" style="font-size:100%">
 		<!-- ####################################################################################################### -->
 		<div class="wrapper col1">
 		  <div id="header">
@@ -82,27 +133,30 @@ Licence URI: http://www.os-templates.com/template-terms
 		      	<li class="active last" style="padding: 15px 20px;background-color:#b2c629; color:#ffffff;">Bienvenido
 			      	@if(isset($currentUser) && $currentUser->r3)
 			        	 {{{$currentUser->name}}}
-			        	 <ul>
-			        	 	<li>
-			        	 		<a href="/logout">Cerrar sesión</a>
-			        	 	</li>
-			        	 </ul>
 			        @endif
 		        </li>
+		        @if(isset($currentUser) && $currentUser)
+			        <li>
+			        	<a href="{{route('logout')}}">Cerrar sesión</a>
+			        </li>
+		        @endif
 		      </ul>
 		    </div>
 		    <br class="clear" />
 		  </div>
 		</div>
 		<!-- ####################################################################################################### -->
-		
-		<div class="wrapper col3">
+		<!-- ['#fff2cc', '#fce5cd', '#f4cccc', '#d9d2e9', '#cfe2f3', '#d9ead3'] -->
+		<div class="wrapper col3" >
   			<div id="container">
 
 				
 				<div id="content">
+					@include('template.navigation')
+					<br class="clear" />
 					@yield('content')
-		
+					<br class="clear" />
+					@include('template.navigation')
 				</div>
 				<div id="column">
 					<div class="holder">

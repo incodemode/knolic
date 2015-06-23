@@ -11,7 +11,7 @@ $(document).ready(function(){
     function initEditor($code){
     	var initialCode = $code.text();
     	var codeLines =  initialCode.split("\n", -1);
-    	var height = codeLines.length * 15;
+    	var height = codeLines.length * 18.5;
     	$code.css('height', height + 'px');
 
     	var $codeReplacement = $code.clone();
@@ -19,9 +19,12 @@ $(document).ready(function(){
     	var codeId = $code.attr('id');
     	var editor = ace.edit(codeId);
         codeEditorStack[codeId] = editor;
-    	editor.setTheme("ace/theme/crimson-editor");
+/*        ace.require("ace/module");
+    	editor.setTheme("ace/crimson_editor");*/
     	editor.getSession().setMode("ace/mode/php");
-    	
+    	editor.setOptions({
+          fontSize: "12pt"
+        });
     	var $executePanel = $code.nextAll('[data-executePanel]').first();
     	var $undoButton = $executePanel.find('[data-undoButton]').first();
     	var $executeButton = $executePanel.find('[data-executeButton]');
@@ -61,6 +64,9 @@ $(document).ready(function(){
 	        var executeUrl = $executeButton.attr('data-executeUrl');
 
 	        $.post(executeUrl, submitParameters, function(data){
+                if(data.session_error){
+                    document.location.href = data.login_url;
+                }
 	            globalData = data;
                 if(data.error){
                     $errorTitle.html('Oops!');

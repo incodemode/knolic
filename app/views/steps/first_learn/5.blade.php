@@ -34,3 +34,30 @@ if($key === false){
 }
 </pre>
 @include('code.execute_panel')
+
+<p>&nbsp;</p>
+<h2>Ejercicio</h2>
+<p>Usando array_search(...), coloque en la variable $indice el índice si es de que si existe el valor 5, si no, dejelo como "Ese valor no existe".</p>
+<div>
+	<div class="passedFront"></div>
+@if(isset($exercise) && $exercise && $exercise->code)
+<pre data-code data-restrictedEdit data-exercise data-passed="{{$exercise->passed}}">{{{$exercise->code}}}</pre>
+@else
+<pre data-code data-restrictedEdit data-exercise>
+&lt;?php
+$arr = [rand(0,5), rand(0,5), rand(0,5), rand(0,5)];
+//[inicio] Escriba su respuesta despues de esta linea:
+
+/********************************/
+/***  escriba su código aqui ****/
+/********************************/
+
+
+//[fin] su código termina en esta linea
+if(ejecutarTests()): echo "Excelente! puedes pasar a la siguiente página.";
+else: error_log("Intentalo de nuevo.");
+endif;
+</pre>
+@endif
+@include('code.execute_panel', ['nextUrl' => $nextUrl, 'executeUrl' => URL::current()])
+</div>
