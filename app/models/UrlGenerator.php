@@ -3,8 +3,7 @@
 class UrlGenerator{
 
 	public static function getCurrentUrl(Users $user){
-		\Log::info('llega a current URl');
-		\Log::info($user->toArray());
+
 		switch($user->current_step){
 
 			case '':
@@ -20,7 +19,7 @@ class UrlGenerator{
 			case 'a221':
 				return route('a221');
 			case 'tests':
-				\Log::info("llega a tests de getCurrentUrl");
+				
 				return route('tests', ['page' => $user->current_page]);
 			case 'results':
 				return route('results');

@@ -50,7 +50,7 @@ class TestsController extends BaseController{
 		$codeToExecute = str_replace('Excelente!', '=E=x=e=c=Exelente!', $codeToExecute);
 		$startCode = $this->startCode($page);
 		$codeToExecute = substr_replace($codeToExecute, $startCode . '//[inicio]', strpos($codeToExecute, '//[inicio]'), strlen('//[inicio]'));// str_replace('//[inicio]', $startCode . '//[inicio]', $codeToExecute);
-		\Log::info($codeToExecute);
+		
 		$endCode = $this->endCode($page);
 		$codeToExecute = substr_replace($codeToExecute, $endCode . '//[fin]', strrpos($codeToExecute, '//[fin]'), strlen('//[fin]'));
 		

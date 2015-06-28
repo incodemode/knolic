@@ -105,6 +105,7 @@ class InputDataController extends BaseController{
 		if($name == null){
 			$oldData = Input::only('born_date', 'born_date_visible', 'email', 'name');
 			$oldData['wrongUser'] = true;
+			
 			return Redirect::to(route('inputData_0'))->withInput($oldData);
 		}
 
@@ -115,11 +116,9 @@ class InputDataController extends BaseController{
 
 	}
 	public function ajaxCheckEmail(){
-		\Log::info("ajaxCheckEmail");
 		$email = Input::get('email');
 		$emailUser = Users::findByEmail($email);
 		if($emailUser){
-			\Log::info("emailExists");
 			return Response::json(['userName' => trim(substr($emailUser->name,0,5)). '...']);
 
 		}
