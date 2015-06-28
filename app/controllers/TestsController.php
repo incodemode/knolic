@@ -117,7 +117,7 @@ class TestsController extends BaseController{
 				return $globalFunctions . 'function ejecutarTests(){ 
 					global $arr; 
 					$done = true;
-					$testArr = [0 => \'peras\', 2 => \'manzanas\', 3 => \'mangos\'];
+					$testArr = [1 => \'peras\', 2 => \'manzanas\', 3 => \'mangos\'];
 					$testArrStr = arrString($testArr);
 					
 					if(!is_array($arr)){

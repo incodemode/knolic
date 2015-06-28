@@ -16,11 +16,11 @@ class Users extends Eloquent{
 		$newUser->c2 = rand(0,1);
 		//temporal
 		
-		$newUser->a1 = 1;
-		$newUser->a21 = 1;
-		$newUser->a22 = 1;
-		$newUser->r3 = 1;
-		$newUser->c2 = 1;
+		$newUser->a1 = 0;
+		$newUser->a21 = 0;
+		$newUser->a22 = 0;
+		$newUser->r3 = 0;
+		$newUser->c2 = 0;
 
 		$newUser->save();
 		return $newUser;

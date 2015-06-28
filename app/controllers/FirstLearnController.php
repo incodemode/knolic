@@ -80,7 +80,7 @@ class FirstLearnController extends BaseController{
 			case 1:
 				return '$arr = null;';
 			case 2:
-				return '$tempC = $c; $arr = null; $tempOtroArr = $otroArr;';
+				return '$arr = null; $tempOtroArr = $otroArr;';
 			case 3:
 				return '$tempArr = $arr; $a = null;';
 			case 4:
@@ -112,7 +112,7 @@ class FirstLearnController extends BaseController{
 				}';
 			case 2:
 				return $globalFunctions . 'function ejecutarTests(){ 
-					global $arr, $tempArr, $otroArr, $tempOtroArr, $tempC; 
+					global $arr, $tempArr, $otroArr, $tempOtroArr; 
 					$done = true;
 					$testArr = [1 => \'libro\', 2 => \'revista\'];
 					$testArrStr = arrString($testArr);

@@ -15,6 +15,10 @@ print_r($arr2);
 <p>Un array es una colección ordenada de valores indizada por llaves.</p>
 <p>Se puede imprimir los valores de los arreglos por medio de print_r($arr);</p>
 <p>&nbsp;</p>
+
+
+
+@if($currentUser->a22)
 <h2>Ejercicio</h2>
 <p>Inicialice la variable $arr como un array.</p>
 <div>
@@ -26,7 +30,7 @@ print_r($arr2);
 &lt;?php
 //[inicio] Escriba su respuesta despues de esta linea:
 
-/* TODO: escriba su código aqui */
+$arr = null;
 
 //[fin] su código termina en esta linea
 if(ejecutarTests()): echo "Excelente! puedes pasar a la siguiente página.";
@@ -36,6 +40,7 @@ endif;
 @endif
 @include('code.execute_panel', ['nextUrl' => $nextUrl, 'executeUrl' => URL::current()])
 </div>
+@endif
 
 
 

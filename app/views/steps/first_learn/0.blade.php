@@ -1,5 +1,5 @@
 	<h2>Area de aprendizaje</h2>
-	<p>La primera fase incluirá los siguientes temas:</p>
+	<p>Esta fase incluirá los siguientes temas:</p>
 		<ul>
 			<li> Definición </li>
 			<li> Inicialización </li>

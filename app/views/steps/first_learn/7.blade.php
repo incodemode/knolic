@@ -23,7 +23,7 @@ if($existeD){
 @include('code.execute_panel')
 
 
-
+@if($currentUser->a22)
 <p>&nbsp;</p>
 <h2>Ejercicio</h2>
 <p>Usando array_key_exists(...), coloque en la variable $respuesta "existe" o "no existe" dependiendo de si existe o no el indice 3 en el array $arr.</p>
@@ -47,3 +47,4 @@ endif;
 @endif
 @include('code.execute_panel', ['nextUrl' => $nextUrl, 'executeUrl' => URL::current()])
 </div>
+@endif

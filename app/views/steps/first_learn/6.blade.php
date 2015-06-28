@@ -34,6 +34,9 @@ print_r( $keysStrict );
 
 
 <p>&nbsp;</p>
+
+
+@if($currentUser->a22)
 <h2>Ejercicio</h2>
 <p>Usando array_keys(...), coloque en la variable $indices los índices de $arr.</p>
 <div>
@@ -46,9 +49,7 @@ print_r( $keysStrict );
 $arr = [rand(0,5), rand(0,5), rand(0,5), rand(0,5)];
 //[inicio] Escriba su respuesta despues de esta linea:
 
-/********************************/
-/***  escriba su código aqui ****/
-/********************************/
+$indices = null;
 
 
 //[fin] su código termina en esta linea
@@ -59,3 +60,4 @@ endif;
 @endif
 @include('code.execute_panel', ['nextUrl' => $nextUrl, 'executeUrl' => URL::current()])
 </div>
+@endif

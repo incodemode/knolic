@@ -1,7 +1,7 @@
 @section('content')
 
 <h2>Test #4 - Existencia</h2>
-<p>Coloque en la variable $foo 'existe' o  'no existe' dependiendo de si existe o no el valor 5 dentro del array $arr.</p>
+<p>Utilizando la función in_array(), coloque en la variable $foo 'existe' o  'no existe' dependiendo de si existe o no el valor 5 dentro del array $arr.</p>
 <div>
 	<div class="passedFront"></div>
 @if(isset($exercise) && $exercise && $exercise->code)

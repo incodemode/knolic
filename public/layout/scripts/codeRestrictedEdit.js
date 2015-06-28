@@ -39,6 +39,10 @@ $(function(){
 	        }
 
 	        function intersects(range) {
+	        	/*if(editor.selection.rangeCount>1){
+	        		return false;
+	        	}*/
+	        	editor.selection.toSingleRange();
 	        	var range1 = editor.getSelectionRange();
 	        	var range2 = range;
 	        	//var intersects = editor.getSelectionRange().intersects(range);
@@ -75,7 +79,7 @@ $(function(){
 	        }
 
 	        function preventReadonly(next) {
-	            if (intersects(range)) return;
+	            if (!intersects(range)) return;
 	            next();
 	        }
 

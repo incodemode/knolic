@@ -1,7 +1,7 @@
 @section('content')
 
 <h2>Test #7 - Existencia del índice</h2>
-<p>Usando array_key_exists(...), coloque en la variable $foo si "existe" o "no existe" el indice 3 en el array $arr.</p>
+<p>Usando array_key_exists(...), coloque en la variable $respuesta si "existe" o "no existe" el indice 3 en el array $arr.</p>
 <div>
 	<div class="passedFront"></div>
 @if(isset($exercise) && $exercise && $exercise->code)

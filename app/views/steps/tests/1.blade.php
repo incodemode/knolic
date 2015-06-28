@@ -12,7 +12,7 @@
 //[inicio] Escriba su respuesta despues de esta linea:
 
 
-
+$arr = [null];
 
 
 //[fin] su código termina en esta linea

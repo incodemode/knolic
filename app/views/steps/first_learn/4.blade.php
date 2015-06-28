@@ -10,7 +10,7 @@
 	<pre data-code>
 &lt;?php
 // Definiendo el arreglo
-$numerosPrimos = [2,3,5,7,11];
+$numerosPrimos = [2,3,5,7,11, true];
 
 // Verificando si 5 esta en el arreglo de numeros primos:
 if(in_array(5, $numerosPrimos)){
@@ -25,10 +25,29 @@ if(in_array(8, $numerosPrimos)){
 }else{
 	echo '8 no esta en el array $numerosPrimos'.PHP_EOL;
 }
+
+// Verificando si 1 esta en el arreglo de numeros primos de manera estricta:
+if(in_array(1, $numerosPrimos, true)){
+	echo '1 sí esta en el array $numerosPrimos de manera estricta'.PHP_EOL;
+}else{
+	echo '1 no esta en el array $numerosPrimos de manera estricta'.PHP_EOL;
+}
+
+// Verificando si true esta en el arreglo de numeros primos de manera estricta:
+if(in_array(1, $numerosPrimos, true)){
+	echo 'true sí esta en el array $numerosPrimos de manera estricta'.PHP_EOL;
+}else{
+	echo 'true no esta en el array $numerosPrimos de manera estricta'.PHP_EOL;
+}
 </pre>
 @include('code.execute_panel')
 
 <p>&nbsp;</p>
+
+
+
+
+@if($currentUser->a22)
 <h2>Ejercicio</h2>
 <p>Usando in_array(...), coloque en la variable $respuesta "existe" o "no existe" dependiendo de si existe o no el valor 5 en $arr.</p>
 <div>
@@ -41,9 +60,7 @@ if(in_array(8, $numerosPrimos)){
 $arr = [rand(0, 5), rand(0,5), rand(0,5)];
 //[inicio] Escriba su respuesta despues de esta linea:
 
-/********************************/
-/***  escriba su código aqui ****/
-/********************************/
+$respuesta = null;
 
 
 //[fin] su código termina en esta linea
@@ -54,5 +71,6 @@ endif;
 @endif
 @include('code.execute_panel', ['nextUrl' => $nextUrl, 'executeUrl' => URL::current()])
 </div>
+@endif
 
 

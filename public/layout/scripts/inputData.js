@@ -107,5 +107,7 @@ $(document).ready(function(){
 	}
 	$(document).on('change', '#email', checkEmailEvt);
 
-	
+	if($('#email').val() != ''){
+		$('#email').trigger('change');
+	}
 });

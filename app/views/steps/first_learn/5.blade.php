@@ -36,6 +36,11 @@ if($key === false){
 @include('code.execute_panel')
 
 <p>&nbsp;</p>
+
+
+
+
+@if($currentUser->a22)
 <h2>Ejercicio</h2>
 <p>Usando array_search(...), coloque en la variable $indice el índice si es de que si existe el valor 5, si no, dejelo como "Ese valor no existe".</p>
 <div>
@@ -48,10 +53,7 @@ if($key === false){
 $arr = [rand(0,5), rand(0,5), rand(0,5), rand(0,5)];
 //[inicio] Escriba su respuesta despues de esta linea:
 
-/********************************/
-/***  escriba su código aqui ****/
-/********************************/
-
+$indice = null;
 
 //[fin] su código termina en esta linea
 if(ejecutarTests()): echo "Excelente! puedes pasar a la siguiente página.";
@@ -61,3 +63,4 @@ endif;
 @endif
 @include('code.execute_panel', ['nextUrl' => $nextUrl, 'executeUrl' => URL::current()])
 </div>
+@endif

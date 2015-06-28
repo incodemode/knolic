@@ -41,12 +41,15 @@ $arr['llave'] = 'Segundo valor';
 $arr[2] = 'Tercer valor'; 
 	
 //Este array tiene 3 valores indexados por tres llaves.
-//Los cuatro valores son: 'Primer valor', 'Segundo valor' y 'Valor n'.
+//Los cuatro valores son: 'Primer valor', 'Segundo valor' y 'Tercer valor'.
 //Sus llaves son: 0 que fue asignada por el sistema, 'llave' y 2 respectivamente.
 print_r($arr);
 </pre>
 @include('code.execute_panel')
 <p>&nbsp;</p>
+
+
+@if($currentUser->a22)
 <h2>Ejercicio</h2>
 <p>Inicialize la variable $arr como un array con los valores 'libro', 'revista' y sus índices 1, 2 respectivamente.</p>
 <p>Tambien agregue a $otroArr el valor 'chicles' con el índice 3.</p>
@@ -57,15 +60,11 @@ print_r($arr);
 @else
 <pre data-code data-restrictedEdit data-exercise>
 &lt;?php
-$c = rand(5,10);
 $otroArr = [1 => 'dulces', 2 => 'chocolates'];
 //[inicio] Escriba su respuesta despues de esta linea:
 
-/********************************/
-/***  escriba su código aqui ****/
-/********************************/
-
-
+$arr = null;
+$otroArr;
 
 
 //[fin] su código termina en esta linea
@@ -76,6 +75,7 @@ endif;
 @endif
 @include('code.execute_panel', ['nextUrl' => $nextUrl, 'executeUrl' => URL::current()])
 </div>
+@endif
 
 
 
