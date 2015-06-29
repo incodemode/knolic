@@ -41,12 +41,12 @@ $(document).on('finishedInit', '[data-code][data-exercise]', function(event, edi
 
 	var $code = $(this);
 	
-	console.log('si llego a encontrar al menos un data-code y data-exercise');
+	
 	var passed = $code.attr('data-passed');
 	var $nextButton = $('[data-nextButton]');
 	var $passedFront = $code.parent().find('.passedFront');
 	if(passed == '1'){
-		console.log("was passed");
+		
 		
 		var $executePanel = $code.nextAll('[data-executePanel]');
 		var $executeButton = $executePanel.find('[data-executeButton]');

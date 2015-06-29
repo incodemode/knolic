@@ -89,18 +89,15 @@ class InputDataController extends BaseController{
 		$possibleUser = Users::findByEmail($email);
 
 		if($possibleUser){
-			Log::info('possibleUser');
 			if($possibleUser->born_date == $born_date){
-				Log::info('date match');
-
+				
 				Session::put('email', $email);
 				$url = UrlGenerator::getCurrentUrl($possibleUser);
 				return Redirect::to($url);
 
 			}else{
-				Log::info('date dont match');
+
 				$oldData = Input::only('born_date', 'born_date_visible', 'email', 'name', 'formName');
-				Log::info($oldData);
 				$oldData['wrongDate'] = true;
 				return Redirect::to(route('inputData_0'))->withInput($oldData);
 

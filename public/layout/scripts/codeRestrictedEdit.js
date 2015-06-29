@@ -57,12 +57,9 @@ $(function(){
 	        		'start' : range2.start.row + (range2.start.column/textLength),
 	        		'end' : range2.end.row + (range2.end.column/textLength)
 	        	}
-	        	console.log(pseudoRange1);//selección
-	        	console.log(pseudoRange2);
-	        	console.log(range2.start);
-	        	console.log(range2.end);
+	        	
 	        	var intersects = false;
-	        	console.log(intersects);
+	        	
 	        	if(pseudoRange1.start >= pseudoRange2.start && 
 	        		pseudoRange1.start <= pseudoRange2.end &&
 	        		pseudoRange1.end >= pseudoRange2.start && 

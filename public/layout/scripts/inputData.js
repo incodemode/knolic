@@ -89,13 +89,13 @@ $(document).ready(function(){
 	$(document).on('click', '#reloadSession', reloadEvt);
 
 	function checkEmailEvt(evt){
-		console.log("checkEmailEvt");
+
 		var $email = $(this);
 		var $name = $('#name');
 		var checkEmailUrl = $email.attr('data-checkEmailUrl');
-		console.log(checkEmailUrl);
+		
 		$.post(checkEmailUrl, {'email' : $email.val()}, function(data){
-			console.log('checkEmailUrl post received');
+			
 			if(data.userName!==''){
 				$name.val(data.userName);
 				$name.attr('disabled', 'disabled');
