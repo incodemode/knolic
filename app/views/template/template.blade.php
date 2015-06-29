@@ -164,24 +164,25 @@ Licence URI: http://www.os-templates.com/template-terms
 					<br class="clear" />
 					@include('template.navigation')
 				</div>
-				<div id="column">
-					<div class="holder">
-						<p>&nbsp;</p>
-						<p>&nbsp;</p>
-						<p>&nbsp;</p>
-						@if(isset($currentUser) && $currentUser->a21)
-							<img src="/images/apple.png">
-						@endif
-						<p>&nbsp;</p>
-						<p>&nbsp;</p>
-						<p>&nbsp;</p>
-						<p>&nbsp;</p>
-						<p>&nbsp;</p>
-						<p>&nbsp;</p>
-						<p>&nbsp;</p>
-						<p>&nbsp;</p>
+				@if(isset($currentUser) && $currentUser->a21)
+					<div id="column">
+						<div class="holder">
+							<p>&nbsp;</p>
+							<p>&nbsp;</p>
+							<p>&nbsp;</p>
+							
+								<img src="/images/apple.png">
+							<p>&nbsp;</p>
+							<p>&nbsp;</p>
+							<p>&nbsp;</p>
+							<p>&nbsp;</p>
+							<p>&nbsp;</p>
+							<p>&nbsp;</p>
+							<p>&nbsp;</p>
+							<p>&nbsp;</p>
+						</div>
 					</div>
-				</div>
+				@endif
 				
 				<br class="clear">
 			</div>
