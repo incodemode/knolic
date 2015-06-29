@@ -54,7 +54,7 @@ class Exercises extends Eloquent{
 				'Índices',
 				'Existencia de índice'
 				];
-		\Log::info($this->page);
+		
 		$subject = $testSubjects[$this->page];
 		
 		return $subject;
@@ -82,5 +82,24 @@ class Exercises extends Eloquent{
 		return $averageTriesSum;
 
 	}
+
+	public function getTimeAttribute(){
+
+		$time = Times::where('step', $this->step)->where('page', $this->page)->sum('time');
+		return $time;
+	}
+
+	public function getAverageTimeAttribute(){
+
+		$averageTimeSum = Times::where('step', '=', $this->step)->where('page', '=', $this->page)->groupBy('user_id')->select(DB::raw('sum(time) as suma'));
+		
+		$averageTime = DB::table( DB::raw("({$averageTimeSum->toSql()}) as sub") )
+		    ->mergeBindings($averageTimeSum->getQuery()) // you need to get underlying Query Builder
+		    ->avg('sub.suma');
+		
+		return $averageTime;
+
+	}
+
 
 }

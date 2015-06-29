@@ -34,6 +34,9 @@ class TestsController extends BaseController{
 		$templateParameters = compact('nextUrl', 'previousUrl');
 		
 		View::share($templateParameters);
+
+		$step = 'tests';
+		View::share( compact('page', 'step'));
 	}
 	public function store($page){
 		

@@ -11,6 +11,15 @@
 |
 */
 
+
+/*Route::group(array('filter' => 'clear-cache'), function(){
+	Route::post('/', [
+		'as' => 'clear-cache',
+		'uses' => 'BaseController@clearCache',
+	]);
+});*/
+
+
 Route::get('/', [
 	'as' =>'home',
 	'uses' => 'WelcomeController@showWelcome'

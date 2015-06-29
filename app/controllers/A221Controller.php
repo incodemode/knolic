@@ -5,8 +5,7 @@ class A221Controller extends BaseController{
 	public function show(){
 
 		$user = Users::getCurrentUser();
-		Log::info('hola');
-		Log::info($user);
+
 		$user->updateLocation('c2');
 
 		$this->layout->content = View::make('steps.a22.a221');

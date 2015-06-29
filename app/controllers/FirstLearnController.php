@@ -39,6 +39,9 @@ class FirstLearnController extends BaseController{
 		
 		View::share($templateParameters);
 
+		$step = 'first_learn';
+		View::share( compact('page', 'step'));
+
 	}
 
 	public function store($page){

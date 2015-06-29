@@ -22,6 +22,9 @@ class C2ExerciseController extends BaseController{
 
 		View::share(compact('nextUrl'));
 		
+		$step = 'c2';
+		$page = null;
+		View::share( compact('page', 'step'));
 	}
 
 	public function store(){

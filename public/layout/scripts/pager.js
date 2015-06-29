@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	
 	$(document).on('click', '[data-nextButton]', function(){
 		var nextUrl = $(this).attr('data-nextUrl');
 		document.location.href = nextUrl;
@@ -7,4 +8,6 @@ $(document).ready(function(){
 		var previousUrl = $(this).attr('data-previousUrl');
 		document.location.href = previousUrl;
 	});
+
+
 });

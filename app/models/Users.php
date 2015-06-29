@@ -53,9 +53,14 @@ class Users extends Eloquent{
 
 	}
 
+	public function times(){
+		return $this->hasMany('Times', 'user_id');
+	}
+
 	public function testResults(){
 
-		return $this->exercises()->where('step', '=', 'tests')->orderBy('page', 'asc');
+		$exercises = $this->exercises()->where('step', '=', 'tests')->orderBy('page', 'asc');
+		return $exercises;
 
 	}
 
@@ -63,6 +68,14 @@ class Users extends Eloquent{
 
 		$testTriesSum = $this->testResults()->where('passed','=','1')->sum('tries');
 		return $testTriesSum;
+
+	}
+
+	public function getTestsTimeSumAttribute(){
+
+		$testTimeSum = $this->times()->where('step', '=', 'tests')->where('page','!=',0)
+			->sum('time');
+		return $testTimeSum;
 
 	}
 	

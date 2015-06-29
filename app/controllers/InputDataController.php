@@ -30,6 +30,12 @@ class InputDataController extends BaseController{
 		
 		$this->layout->content = View::make('steps.input_data.input_data', $oldInput);
 
+
+		$step = 'input_data';
+		$page = null;
+		View::share( compact('page', 'step'));
+
+
 	}
 
 	public function showAlreadyLoggedIn(){

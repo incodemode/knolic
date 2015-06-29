@@ -12,6 +12,7 @@ class BaseController extends Controller {
 	protected function setupLayout()
 	{
 
+		
 
 		$email = base64_encode('lmdbluis@gmail.com');
 		$phone = base64_encode('34859662');
@@ -41,5 +42,6 @@ class BaseController extends Controller {
 		
 
 	}
+
 
 }

@@ -22,6 +22,33 @@ App::after(function($request, $response)
 	//
 });
 
+App::before(function($request, $response)
+{
+	$clearCache = Input::get('clear-cache');
+	if($clearCache){
+		return Response::json(['clear-cache'=>true]);
+	}
+});
+App::before(function($request, $response)
+{
+
+	extract($_COOKIE);
+	$currentUser = Users::getCurrentUser();
+	if(isset($step) && $step && $currentUser){
+		$user_id = $currentUser->id;
+		$start = $dateStartStr;
+		$end = $dateEndStr;
+		$timesParameters = compact('start', 'end','time','page','step', 'user_id');
+		Times::create($timesParameters);
+	}
+	$timeKeys = ['dateStartStr', 'dateEndStr','time','page','step'];
+	foreach($timeKeys as $key){
+		unset($_COOKIE[$key]);
+		setcookie($key, null, -1, '/');
+	}
+
+});
+
 /*
 |--------------------------------------------------------------------------
 | Authentication Filters

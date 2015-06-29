@@ -39,9 +39,8 @@ $(function(){
 	        }
 
 	        function intersects(range) {
-	        	/*if(editor.selection.rangeCount>1){
-	        		return false;
-	        	}*/
+	        	
+	        	
 	        	editor.selection.toSingleRange();
 	        	var range1 = editor.getSelectionRange();
 	        	var range2 = range;
@@ -49,8 +48,7 @@ $(function(){
 
 	        	var text = editor.getSession().getValue();
 	        	var textLength = text.length;
-	        	console.log(range1.start);
-	        	console.log(range1.end);
+	        	
 	        	pseudoRange1 = {
 	        		'start' : range1.start.row + (range1.start.column/textLength),
 	        		'end' : range1.end.row + (range1.end.column/textLength)

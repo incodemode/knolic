@@ -9,9 +9,7 @@
 @else
 <pre data-code data-restrictedEdit data-exercise>
 &lt;?php
-
 $arr = [rand(0,10),    rand(0,10),     rand(0,10),     rand(0,10)];
-
 //[inicio] Escriba su respuesta despues de esta linea:
 
 

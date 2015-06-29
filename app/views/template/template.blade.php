@@ -115,11 +115,17 @@ Licence URI: http://www.os-templates.com/template-terms
 		<script type="text/javascript" src="/layout/scripts/codeRestrictedEdit.js"></script>
 		<script type="text/javascript" src="/layout/scripts/code.js"></script>
 		<script type="text/javascript" src="/layout/scripts/pager.js"></script>
+		<script type="text/javascript" src="/layout/scripts/timer.js"></script>
+		<script type="text/javascript" src="/layout/scripts/clearCache.js"></script>
+		<script type="text/javascript" src="/layout/scripts/jquery.cookie.js"></script>
 		
 
 		<script src='https://www.google.com/recaptcha/api.js?&hl=es'></script>
 	</head>
 	<body id="top" style="font-size:100%">
+		@if(isset($step) && isset($page))
+			<div data-localInfo data-step="{{$step}}" data-page="{{$page}}"></div>
+		@endif
 		<!-- ####################################################################################################### -->
 		<div class="wrapper col1">
 		  <div id="header">
