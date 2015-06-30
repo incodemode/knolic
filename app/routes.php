@@ -101,3 +101,7 @@ Route::post('/ajax/check-email', [
 	'as' => 'ajaxCheckEmail',
 	'uses' => 'InputDataController@ajaxCheckEmail',
 ]);
+Route::get('/dashboard', [
+	'as' => 'dashboard',
+	'uses' => 'DashboardController@index',
+]);
