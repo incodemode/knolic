@@ -3,11 +3,14 @@ $(function(){
 		
 		var $code = $(this);
 		editor.setOption("dragEnabled", false)
-	    var noIntersect = function(lineStart, charStart, lineEnd, charEnd){
+	    var allowEdition = function(lineStart, charStart, lineEnd, charEnd, lineEndEnd, charEndEnd){
 	        var session  = editor.getSession()
 	        , Range    = ace.require("ace/range").Range
 	        , range    = new Range(lineStart, charStart, lineEnd, charEnd)
 	        , markerId = session.addMarker(range, "readonly-highlight");
+
+	        /*editor.session.addFold("", new Range(0,0,lineStart,charStart));
+	        editor.session.addFold("", new Range(lineEnd,0,lineEndEnd,charEndEnd));*/
 
 	        editor.keyBinding.addKeyboardHandler({
 	            handleKeyboard : function(data, hash, keyString, keyCode, event) {
@@ -25,6 +28,8 @@ $(function(){
 	        range.start  = session.doc.createAnchor(range.start);
 	        range.end    = session.doc.createAnchor(range.end);
 	        range.end.$insertRight = true;
+
+
 
 	        function before(obj, method, wrapper) {
 	            var orig = obj[method];
@@ -97,9 +102,11 @@ $(function(){
 	            charEnd = 0;
 	        }
 	    }
+	    var lineEndEnd = codeLines.length;
+	    var charEndEnd = codeLines[codeLines.length-1].length;
 
 	    editor.setFontSize(14);
-	    noIntersect(lineStart, charStart, lineEnd, charEnd);
+	    allowEdition(lineStart, charStart, lineEnd, charEnd, lineEndEnd, charEndEnd);
 
 	});
 });

@@ -11,13 +11,14 @@ $(document).ready(function(){
     function initEditor($code){
     	var initialCode = $code.text();
     	var codeLines =  initialCode.split("\n", -1);
-    	var height = codeLines.length * 18.5;
+    	var height = codeLines.length * 24;
     	$code.css('height', height + 'px');
 
     	var $codeReplacement = $code.clone();
 
     	var codeId = $code.attr('id');
     	var editor = ace.edit(codeId);
+        editor.container.style.lineHeight = "1.5";
         codeEditorStack[codeId] = editor;
 /*        ace.require("ace/module");
     	editor.setTheme("ace/crimson_editor");*/

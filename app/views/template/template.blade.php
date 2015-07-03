@@ -96,6 +96,8 @@ Licence URI: http://www.os-templates.com/template-terms
 					background-color: {{$a1SuperLightBackground}};
 				}
 			@endif
+			[data-code] {line-height: 15}
+
 		</style>
 		<style type="text/css" media="screen">
 			body {
@@ -122,7 +124,7 @@ Licence URI: http://www.os-templates.com/template-terms
 
 		<script src='https://www.google.com/recaptcha/api.js?&hl=es'></script>
 	</head>
-	<body id="top" style="font-size:100%">
+	<body id="top" style="font-size:120%">
 		@if(isset($step) && isset($page))
 			<div data-localInfo data-step="{{$step}}" data-page="{{$page}}"></div>
 		@endif
