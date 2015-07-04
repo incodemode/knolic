@@ -8,7 +8,7 @@
 		[(bool) $estricto = FALSE ]
 	);</pre>
 	<p>PHP utiliza bastante la analogía de encontrar una aguja en un pajar para varias funciones que involucren busqueda y esta no es la excepción</p>
-	<p>La variable <span class="ace-tm ace-text"> $aguja </span> indica el valor que se va a buscar dentro del arreglo.</p>
+	<p>La variable $aguja indica el valor que se va a buscar dentro del arreglo.</p>
 	<p>La variable $pajar es el arreglo en el que se va a buscar.</p>
 	
 	<p>Por ejemplo, podemos utilizar in_array para saber si 5 y 8 estan dentro de nuestro arreglo $numerosPrimos:</p>
