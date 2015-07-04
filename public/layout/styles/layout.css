@@ -41,7 +41,7 @@ div.wrapper{display:block; width:100%; margin:0; text-align:left;}
 div.wrapper h1, div.wrapper h2, div.wrapper h3, div.wrapper h4, div.wrapper h5, div.wrapper h6{margin:0; padding:0; font-size:20px; font-weight:normal; line-height:normal; font-family:Georgia, "Times New Roman", Times, serif;}
 .col1{color:#CCCCCC; background-color:#000000;}
 .col2, .col2 a{color:#FFFFFF; background-color:#B2C629;}
-.col3{color:#777777; background-color:#FFFFFF;}
+.col3{color:#222; background-color:#FFFFFF;}
 .col3 a{color:#95AD19; background-color:#FFFFFF;}
 .col4{color:#FFFFFF; background-color:#000000;}
 .col4 a{color:#95AD19; background-color:#000000;}

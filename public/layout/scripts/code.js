@@ -18,6 +18,8 @@ $(document).ready(function(){
 
     	var codeId = $code.attr('id');
     	var editor = ace.edit(codeId);
+        
+        
         editor.container.style.lineHeight = "1.5";
         codeEditorStack[codeId] = editor;
 /*        ace.require("ace/module");

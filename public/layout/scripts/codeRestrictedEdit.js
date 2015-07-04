@@ -105,7 +105,7 @@ $(function(){
 	    var lineEndEnd = codeLines.length;
 	    var charEndEnd = codeLines[codeLines.length-1].length;
 
-	    editor.setFontSize(14);
+	    
 	    allowEdition(lineStart, charStart, lineEnd, charEnd, lineEndEnd, charEndEnd);
 
 	});

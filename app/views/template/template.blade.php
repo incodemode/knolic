@@ -86,7 +86,7 @@ Licence URI: http://www.os-templates.com/template-terms
 					background-color: {{$a1SuperLightBackground}};
 				}
 				#container{
-					background-color: {{$a1LightBackground}} !important;
+					background-color: {{$a1SuperLightBackground}} !important;
 					padding: 20px;
 				}
 				.wrapper.col3{
@@ -98,6 +98,17 @@ Licence URI: http://www.os-templates.com/template-terms
 			@endif
 			[data-code] {line-height: 15}
 
+			.phpVariable{
+				
+				color: #000;
+				font-weight: 500;
+				padding-left:5px;
+				padding-right:5px;
+				font-family: courier;
+				@if(isset($currentUser) && $currentUser && $currentUser->a1)
+					background-color:{{$a1LightBackground}};
+				@endif
+			}
 		</style>
 		<style type="text/css" media="screen">
 			body {
@@ -113,13 +124,18 @@ Licence URI: http://www.os-templates.com/template-terms
 		<script type="text/javascript" src="/layout/scripts/inputData.js"></script>
 		<script type="text/javascript" src="/ace/ace.js"></script>
 		
+		
 		<script type="text/javascript" src="/layout/scripts/codeExercise.js"></script>
+		<script type="text/javascript" src="/layout/scripts/codeHidePhp.js"></script>
+		<script type="text/javascript" src="/layout/scripts/codeDisableAlerts.js"></script>
 		<script type="text/javascript" src="/layout/scripts/codeRestrictedEdit.js"></script>
 		<script type="text/javascript" src="/layout/scripts/code.js"></script>
 		<script type="text/javascript" src="/layout/scripts/pager.js"></script>
 		<script type="text/javascript" src="/layout/scripts/timer.js"></script>
 		<script type="text/javascript" src="/layout/scripts/clearCache.js"></script>
 		<script type="text/javascript" src="/layout/scripts/jquery.cookie.js"></script>
+
+		<script type="text/javascript" src="/layout/scripts/styling/phpVariables.js"></script>
 		
 
 		<script src='https://www.google.com/recaptcha/api.js?&hl=es'></script>

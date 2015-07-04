@@ -1,12 +1,17 @@
 
 	<h2>in_array($needle, $haystack)</h2>
 	<p>in_array sirve para verificar si un valor existe o no en un arreglo, independientemente de su índice. </p>
-	<p>La definición formal es bool in_array ( mixed $aguja , array $pajar [, bool $strict = FALSE ] )</p>
+	<p>La definición formal es: </p>
+	<pre data-code data-hidePhp code-disableAlerts>&lt;?php	bool in_array ( 
+		(mixed) $aguja , 
+		(array) $pajar , 
+		[(bool) $estricto = FALSE ]
+	);</pre>
 	<p>PHP utiliza bastante la analogía de encontrar una aguja en un pajar para varias funciones que involucren busqueda y esta no es la excepción</p>
-	<p>La variable $aguja indica el valor que se va a buscar dentro del arreglo.</p>
+	<p>La variable <span class="ace-tm ace-text"> $aguja </span> indica el valor que se va a buscar dentro del arreglo.</p>
 	<p>La variable $pajar es el arreglo en el que se va a buscar.</p>
 	
-	<p>Por ejemplo, podemos utilizar in_array para saber si 5 y 8 estan dentro de nuestro arreglo $numerosPrimos</p>
+	<p>Por ejemplo, podemos utilizar in_array para saber si 5 y 8 estan dentro de nuestro arreglo $numerosPrimos:</p>
 	<pre data-code>
 &lt;?php
 
@@ -30,9 +35,9 @@
 @include('code.execute_panel')
 
 <p>$strict se utiliza como true cuando se quiere comparar con === en vez de ==, la diferencia es que 
-	<pre data-code>&lt;?  	1 ==  true; 	// es verdadero. </pre> 
+	<pre data-code data-hidePhp data-disableAlerts>&lt;?php  	1 ==  true; 	// es verdadero. </pre> 
 mientras que 
-	<pre data-code>&lt;?  	1 === true; 	// es falso. </pre>
+	<pre data-code data-hidePhp data-disableAlerts>&lt;?php  	1 === true; 	// es falso. </pre>
 </p>
 <p>$strict no es tan utilizado y tampoco es necesario colocarlo ya que por defecto es false</p>
 
