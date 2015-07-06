@@ -1,7 +1,7 @@
 	<h2>Area de aprendizaje</h2>
 	<p>Esta fase incluirá los siguientes temas:</p>
 		<ul>
-			<li> Definición </li>
+			<li> Declaración </li>
 			<li> Inicialización </li>
 			<li> Acceso por medio de índices </li>
 			<li> in_array </li>

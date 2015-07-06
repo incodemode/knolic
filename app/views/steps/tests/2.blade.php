@@ -1,26 +1,16 @@
 @section('content')
 
 <h2>Test #2 - Inserción</h2>
-<p>Agregue a $arr el valor 'mangos' con el índice 3.</p>
+<p>Agregue a $arr el valor <span class="phpVariable">'mangos'</span> con el índice <span class="phpVariable">3</span>.</p>
 <div>
 	<div class="passedFront"></div>
 @if(isset($exercise) && $exercise && $exercise->code)
-<pre data-code data-restrictedEdit data-exercise data-passed="{{$exercise->passed}}">{{{$exercise->code}}}</pre>
+<pre data-code data-hidePhp data-exercise data-passed="{{$exercise->passed}}">{{{$exercise->code}}}</pre>
 @else
-<pre data-code data-restrictedEdit data-exercise>
-&lt;?php  $arr = [1=>'peras', 2=>'manzanas'];
-//[inicio] Escriba su respuesta despues de esta linea:
+<pre data-code data-hidePhp data-exercise>&lt;?php  
 
 
 
-
-
-
-
-//[fin] su código termina en esta linea
-if(ejecutarTests()): echo "Excelente! puedes pasar a la siguiente página.";
-else: error_log("Ocurrio un error, intentelo de nuevo.");
-endif;
 </pre>
 @endif
 @include('code.execute_panel', ['nextUrl' => $nextUrl, 'executeUrl' => URL::current()])

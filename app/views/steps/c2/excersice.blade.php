@@ -5,38 +5,49 @@
 	
 		
 
-			<p> Antes de empezar por favor resuelva este sencillo problema de php:</p>
-			<p> Si tiene las variables $a y $b, utilizando solamente una variable temporal $c intercambie los valores de $a y $b para que el valor de $a quede en $b y el valor de $b quede en $a.</p>
-			<p> Por ejemplo si al inicio $a = 1 y $b = 2</p>
-			<p> Luego de ejecutar su código los valores quedarán como: $a = 2 y $b = 1</p>
+<p> Antes de empezar por favor resuelva este sencillo problema de programación en php:</p>
+
+<p> Si tiene las variables 
+	<pre data-code data-hidePhp data-disableAlerts>&lt;?php
+		$a; // y
+		$b;
+</pre>
+Utilizando solamente una variable temporal 
+<pre data-code data-hidePhp data-disableAlerts>&lt;?php
+		$c;
+</pre> intercambie los valores de $a y $b para que el valor de $a quede en $b y el valor de $b quede en $a.</p>
+
+<p> Por ejemplo si al inicio 
+<pre data-code data-hidePhp data-disableAlerts>&lt;?php
+		$a = 1; // y
+		$b = 2;
+</pre></p>
+
+<p> Luego de ejecutar su código los valores quedarán como: 
+<pre data-code data-hidePhp data-disableAlerts>&lt;?php
+		$a = 2; // y
+		$b = 1;
+</pre></p>
+<p> Coloque su código aqui y presione "Ejecutar Código" para verificar su respuesta:</p>
 <div>
 <div class="passedFront"></div>	
 @if(isset($exercise) && $exercise && $exercise->code)
 
 <pre id="exercise" style="height:240px;" 
 	data-code 
-	data-restrictedEdit 
+	data-hidePhp
 	data-exercise 
 	data-passed="{{$exercise->passed}}">{{{$exercise->code}}}</pre>
 @else
+
 <pre id="exercise" style="height:240px;" 
 	data-code 
-	data-restrictedEdit 
-	data-exercise>
-&lt;?php
-//definiendo $a y $b.
-$a = rand(1,10);
-$b = rand(11,20);
-//[inicio] escriba su código de respuesta despues de esta linea
+	data-exercise
+	data-hidePHp>&lt;?php
+	$c;
+	$a;
+	$b;
 
-/* RESPUESTA AQUI */
-
-//[fin] su código termina en esta linea
-if(  ejecutarTest()  ){
-    echo('Excelente!, puedes pasar a la siguiente página.');
-}else{
-    error_log('Ha fallado el test, intentalo de nuevo.');
-}
 </pre>
 @endif
 @include('code.execute_panel', [ 'nextUrl' => route('first_learn', ['page' => 0]),

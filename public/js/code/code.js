@@ -11,16 +11,17 @@ $(document).ready(function(){
     function initEditor($code){
     	var initialCode = $code.text();
     	var codeLines =  initialCode.split("\n", -1);
-    	var height = codeLines.length * 24;
+    	var height = codeLines.length * 27.5;
     	$code.css('height', height + 'px');
 
     	var $codeReplacement = $code.clone();
 
     	var codeId = $code.attr('id');
+
     	var editor = ace.edit(codeId);
         
-        
-        editor.container.style.lineHeight = "1.5";
+        editor.renderer.setShowGutter(true); 
+        editor.container.style.lineHeight = "1.7";
         codeEditorStack[codeId] = editor;
 /*        ace.require("ace/module");
     	editor.setTheme("ace/crimson_editor");*/
@@ -28,7 +29,7 @@ $(document).ready(function(){
     	editor.setOptions({
           fontSize: "12pt"
         });
-    	var $executePanel = $code.nextAll('[data-executePanel]').first();
+    	var $executePanel = $code.next('[data-executePanel]').first();
     	var $undoButton = $executePanel.find('[data-undoButton]').first();
     	var $executeButton = $executePanel.find('[data-executeButton]');
     	var $loading = $executePanel.find('[data-loading]');
@@ -53,24 +54,24 @@ $(document).ready(function(){
     	});
 
     	$executeButton.click(function(evt){
-    		evt.preventDefault();
+            evt.preventDefault();
+            
+            var submitParameters = {
+                code: editor.getSession().getValue()
+            };
+            
+            $errorWidget.hide();
+            $successWidget.hide();
+            $loading.show();
+            $executeButton.hide();
+            $undoButton.hide();
+            var executeUrl = $executeButton.attr('data-executeUrl');
 
-	        var submitParameters = {
-	            code: editor.getSession().getValue()
-	        };
-	        
-	        $errorWidget.hide();
-	        $successWidget.hide();
-	        $loading.show();
-	        $executeButton.hide();
-	        $undoButton.hide();
-	        var executeUrl = $executeButton.attr('data-executeUrl');
-
-	        $.post(executeUrl, submitParameters, function(data){
+            $.post(executeUrl, submitParameters, function(data){
                 if(data.session_error){
                     document.location.href = data.login_url;
                 }
-	            globalData = data;
+                globalData = data;
                 if(data.error){
                     $errorTitle.html('Oops!');
                     $errorContent.html(data.errorDescription);
@@ -82,24 +83,25 @@ $(document).ready(function(){
 
                 }
                 if(data.output != ''){
-	                $successWidget.show();
-	                $successContent.html('<pre>'+data.output+'</pre>');
-	                
-	            }
+                    $successWidget.show();
+                    $successContent.html('<pre>'+data.output+'</pre>');
+                    
+                }
                 $loading.hide();
                 $executeButton.show();
                 $undoButton.show();
                 $code.trigger('ajaxFinished', data);
-	        }).fail(function() {
-	            $errorTitle.text('Error de conexión!');
-	            $errorContent.html('No se pudo conectar con el servidor knolic.');
-	            $errorWidget.show();
-	            $loading.hide();
-	            $executeButton.show();
-	            $undoButton.show();
+            }).fail(function() {
+                $errorTitle.text('Error de conexión!');
+                $errorContent.html('No se pudo conectar con el servidor knolic.');
+                $errorWidget.show();
+                $loading.hide();
+                $executeButton.show();
+                $undoButton.show();
                 $code.trigger('ajaxFinished');
-	        });
-    	});
+            });
+        });
+        $code.show();
 	    $code.trigger('finishedInit', editor);
     }
     

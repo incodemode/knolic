@@ -54,22 +54,30 @@ class FirstLearnController extends BaseController{
 			return Redirect::to(route('inputData_0'));
 		}
 		$code = Input::get('code');
+
 		$codeToExecute = $code;
-		$codeToExecute = str_replace('Excelente!', '=E=x=e=c=Exelente!', $codeToExecute);
+		$codeToExecute = str_replace('<?php','',$codeToExecute);
+		
 		$startCode = $this->startCode($page);
-		$codeToExecute = substr_replace($codeToExecute, $startCode . '//[inicio]', strpos($codeToExecute, '//[inicio]'), strlen('//[inicio]'));// str_replace('//[inicio]', $startCode . '//[inicio]', $codeToExecute);
 		$endCode = $this->endCode($page);
-		$codeToExecute = substr_replace($codeToExecute, $endCode . '//[fin]', strrpos($codeToExecute, '//[fin]'), strlen('//[fin]'));
+		$codeToExecute = '<?php '.$startCode . $codeToExecute . $endCode; 
+		
+		
+		$codeToExecute .= 'if(ejecutarTests()): 
+			echo "=E=x=e=c=Excelente! puedes pasar a la siguiente página.";
+		else: 
+			error_log("Error, intentelo de nuevo.");
+		endif;';
 		
 		$execution = CodeExecutor::execute($codeToExecute);
 		
 		$execution['passed'] = false;
 		$output = $execution['output']?$execution['output']:'';
 		
-		if(strpos($output, '=E=x=e=c=Exelente!' )!==false){
+		if(strpos($output, '=E=x=e=c=Excelente!' )!==false){
 			$execution['passed'] = true;
 		}
-		$execution['output'] = str_replace('=E=x=e=c=Exelente!', 'Exelente!', $execution['output']);
+		$execution['output'] = str_replace('=E=x=e=c=Excelente!', 'Excelente!', $execution['output']);
 
 		$exercise = Exercises::findOrCreate('first_learn', $page);
 		$exercise->storeLastRun($code, $execution['passed']);
@@ -83,17 +91,17 @@ class FirstLearnController extends BaseController{
 			case 1:
 				return '$arr = null;';
 			case 2:
-				return '$arr = null; $tempOtroArr = $otroArr;';
+				return '$otroArr = [1 => \'dulces\', 2 => \'chocolates\']; $arr = null; $tempOtroArr = $otroArr;';
 			case 3:
-				return '$tempArr = $arr; $a = null;';
+				return '$arr = [1 => 5463, 2 => 3548, 3=> rand(1000, 5000)];$tempArr = $arr; $a = null;';
 			case 4:
-				return '$tempArr = $arr; $respuesta = null;';
+				return '$arr = [rand(0, 5), rand(0,5), rand(0,5)]; $tempArr = $arr; $respuesta = null;';
 			case 5:
-				return '$tempArr = $arr; $indice = null;';
+				return '$arr = [rand(0,5), rand(0,5), rand(0,5), rand(0,5)]; $tempArr = $arr; $indice = null;';
 			case 6:
-				return '$tempArr = $arr; $indices = null;';
+				return '$arr = [\'un\' => rand(0,5), \'dos\' => rand(0,5), \'tres\' => rand(0,5), \'cuatro\' => rand(0,5)]; $tempArr = $arr; $indices = null;';
 			case 7:
-				return '$tempArr = $arr; $respuesta = null;';
+				return '$arr = [rand(0,1) => \'queso\', rand(2,3) => \'pan\', rand(4,5) => \'zanahoria\']; $tempArr = $arr; $respuesta = null;';
 		}
 		return '';
 	}
@@ -136,7 +144,7 @@ class FirstLearnController extends BaseController{
 						$done = false;
 					}else if($otroArr != $testOtroArr){
 						$otroArrStr = arrString($otroArr); 
-						error_log(\'- $otroArr debio quedar con el valor<br>&nbsp;&nbsp;&nbsp;&nbsp;\'.$testOtroArrStr.\'<br>&nbsp;&nbsp;y quedo así<br>&nbsp;&nbsp;&nbsp;&nbsp;\'.$otroArrStr.\'<br>&nbsp;\');
+						error_log(\'- $otroArr debio quedar con los valores<br>&nbsp;&nbsp;&nbsp;&nbsp;\'.$testOtroArrStr.\'<br>&nbsp;&nbsp;y quedo así<br>&nbsp;&nbsp;&nbsp;&nbsp;\'.$otroArrStr.\'<br>&nbsp;\');
 						$done = false;
 					}
 					return $done;

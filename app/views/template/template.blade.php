@@ -109,6 +109,12 @@ Licence URI: http://www.os-templates.com/template-terms
 					background-color:{{$a1LightBackground}};
 				@endif
 			}
+			[data-code]{
+				display:none;
+				@if(isset($currentUser) && $currentUser && $currentUser->a1)
+					border:{{$a1StrongBackground}} solid 1px;
+				@endif
+			}
 		</style>
 		<style type="text/css" media="screen">
 			body {
@@ -121,21 +127,21 @@ Licence URI: http://www.os-templates.com/template-terms
 		<script type="text/javascript" src="/layout/scripts/jquery.validate.js"></script>
 		<script type="text/javascript" src="/layout/scripts/jquery.validate.additional.methods.js"></script>
 		<script type="text/javascript" src="/layout/scripts/layout.js"></script>
-		<script type="text/javascript" src="/layout/scripts/inputData.js"></script>
+		<script type="text/javascript" src="/js/inputData.js"></script>
 		<script type="text/javascript" src="/ace/ace.js"></script>
 		
 		
-		<script type="text/javascript" src="/layout/scripts/codeExercise.js"></script>
-		<script type="text/javascript" src="/layout/scripts/codeHidePhp.js"></script>
-		<script type="text/javascript" src="/layout/scripts/codeDisableAlerts.js"></script>
-		<script type="text/javascript" src="/layout/scripts/codeRestrictedEdit.js"></script>
-		<script type="text/javascript" src="/layout/scripts/code.js"></script>
-		<script type="text/javascript" src="/layout/scripts/pager.js"></script>
-		<script type="text/javascript" src="/layout/scripts/timer.js"></script>
-		<script type="text/javascript" src="/layout/scripts/clearCache.js"></script>
+		<script type="text/javascript" src="/js/code/codeExercise.js"></script>
+		<script type="text/javascript" src="/js/code/codeHidePhp.js"></script>
+		<script type="text/javascript" src="/js/code/codeDisableAlerts.js"></script>
+		<script type="text/javascript" src="/js/code/codeRestrictedEdit.js"></script>
+		<script type="text/javascript" src="/js/code/code.js"></script>
+		<script type="text/javascript" src="/js/pager.js"></script>
+		<script type="text/javascript" src="/js/timer.js"></script>
+		<script type="text/javascript" src="/js/clearCache.js"></script>
 		<script type="text/javascript" src="/layout/scripts/jquery.cookie.js"></script>
 
-		<script type="text/javascript" src="/layout/scripts/styling/phpVariables.js"></script>
+		<script type="text/javascript" src="/js/styling/phpVariables.js"></script>
 		
 
 		<script src='https://www.google.com/recaptcha/api.js?&hl=es'></script>

@@ -1,34 +1,41 @@
 
 	<h2>array_keys($arreglo, $valor_de_busqueda, $strict)</h2>
-	<p>array_keys retorna un arreglo con las llaves que tiene $arr, por ejemplo:</p>
-	<pre data-code>
-&lt;?php
-$arr = ['a' => 'casa', 'b' => 'perro', 'c' => 'agua', 'd' => 'perro']; 
-$keys = array_keys($arr); //retornará ['a', 'b', 'c', 'd']
-print_r($keys);
-</pre>
-@include('code.execute_panel')
+	<p><span class="phpVariable">array_keys(...)</span> retorna un arreglo con las llaves que tiene $arr, por ejemplo:</p>
+	<pre data-code data-hidePhp>&lt;?php
+		$arr = ['a' => 'casa', 'b' => 'perro', 'c' => 'perro']; 
+		
+		$keys = array_keys($arr); 
+
+		echo 'Las llaves de $arr son:' . PHP_EOL;
+		print_r($keys); //['a', 'b', 'c']
+	</pre>
+	@include('code.execute_panel')
 
 <p>Cuando se utiliza con $valor_de_busqueda devolverá las llaves de los valores que sean encontrados.</p>
-	<pre data-code>
-&lt;?php
-$arr = ['a' => 'casa', 'b' => 'perro', 'c' => 'agua', 'd' => 'perro']; 
-$valor_de_busqueda = 'perro';
-$keys = array_keys($arr, $valor_de_busqueda); //retornará ['b', 'd']
-print_r($keys);
-</pre>
+	<pre data-code data-hidePhp>&lt;?php
+		$arr = ['a' => 'casa', 'b' => 'perro', 'c' => 'perro']; 
+		
+		$valor_de_busqueda = 'perro';
+		$keys = array_keys($arr, $valor_de_busqueda);
+
+		echo 'Llaves de $arr para el valor "perro":' . PHP_EOL;
+		print_r($keys); // ['b', 'c']
+	</pre>
 @include('code.execute_panel')
 
 
-<p>$strict se refiere a si valor de busqueda será evaluado con == o ===.</p>
-	<pre data-code>
-&lt;?php
-$arr = ['a' => 1, 'b' => '1', 'c' => true]; 
-$valor_de_busqueda = '1';
-$keys = array_keys($arr, $valor_de_busqueda, false); //retornará ['a', 'b', 'c']
-print_r( $keys );
-$keysStrict = array_keys($arr, $valor_de_busqueda, true); //retornará ['c']
-print_r( $keysStrict );
+<p>$strict indica si valor de busqueda será evaluado con <span class="phpVariable">==</span> o <span class="phpVariable">===</span>.</p>
+	<pre data-code data-hidePhp>&lt;?php
+		$arr = ['a' => 1, 'b' => '1', 'c' => true]; 
+		$valor_de_busqueda = '1';
+
+		echo 'Sin $strinct retorna:' . PHP_EOL;
+		$keys = array_keys($arr, $valor_de_busqueda, false); 
+		print_r( $keys ); // ["a", "b", "c"]
+
+		echo 'Con $strinct retorna:' . PHP_EOL;
+		$keysStrict = array_keys($arr, $valor_de_busqueda, true);
+		print_r( $keysStrict ); // ['c']
 </pre>
 @include('code.execute_panel')
 
@@ -42,20 +49,10 @@ print_r( $keysStrict );
 <div>
 	<div class="passedFront"></div>
 @if(isset($exercise) && $exercise && $exercise->code)
-<pre data-code data-restrictedEdit data-exercise data-passed="{{$exercise->passed}}">{{{$exercise->code}}}</pre>
+<pre data-code data-hidePhp data-exercise data-passed="{{$exercise->passed}}">{{{$exercise->code}}}</pre>
 @else
-<pre data-code data-restrictedEdit data-exercise>
-&lt;?php
-$arr = [rand(0,5), rand(0,5), rand(0,5), rand(0,5)];
-//[inicio] Escriba su respuesta despues de esta linea:
-
-$indices = null;
-
-
-//[fin] su código termina en esta linea
-if(ejecutarTests()): echo "Excelente! puedes pasar a la siguiente página.";
-else: error_log("Intentalo de nuevo.");
-endif;
+<pre data-code data-hidePhp data-exercise>&lt;?php
+		$indices = null;
 </pre>
 @endif
 @include('code.execute_panel', ['nextUrl' => $nextUrl, 'executeUrl' => URL::current()])

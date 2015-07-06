@@ -9,8 +9,10 @@ $(function(){
 	        , range    = new Range(lineStart, charStart, lineEnd, charEnd)
 	        , markerId = session.addMarker(range, "readonly-highlight");
 
-	        /*editor.session.addFold("", new Range(0,0,lineStart,charStart));
-	        editor.session.addFold("", new Range(lineEnd,0,lineEndEnd,charEndEnd));*/
+	        editor.session.addFold('', new Range(0,0,lineStart,charStart));
+	        /*editor.session.addFold('', new Range(lineEnd,0,lineEndEnd,charEndEnd));
+	        var height = (lineEnd-lineStart +1) * 25.5;
+	        $code.css('height', height + 'px');*/
 
 	        editor.keyBinding.addKeyboardHandler({
 	            handleKeyboard : function(data, hash, keyString, keyCode, event) {
@@ -92,12 +94,12 @@ $(function(){
 	    var lineStart, charStart, lineEnd, charEnd;
 
 	    for(var i = 0; i< codeLines.length; i++){
-	        if(codeLines[i].lastIndexOf('//[inicio]', 0) === 0){
+	        if(codeLines[i].lastIndexOf('//[inicio]') !== -1){
 	            lineStart = i+1;
 	            charStart = 0;
 	        }
 
-	        if(codeLines[i].lastIndexOf('//[fin]', 0) === 0){
+	        if(codeLines[i].lastIndexOf('//[fin]') !== -1){
 	            lineEnd = i;
 	            charEnd = 0;
 	        }

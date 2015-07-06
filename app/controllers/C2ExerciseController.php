@@ -35,10 +35,17 @@ class C2ExerciseController extends BaseController{
 			return Response::json(['session_error' => true, 'login_url' => route('inputData_0')]);
 		}
 		$code = Input::get('code');
-		$sourceCode = $code;
-		$sourceCode = str_replace('//[inicio]','$aTest = $a; $bTest = $b; //', $sourceCode);
+
+		
+		$startCode = '$a = rand(1,10); $b = rand(11,20);$aTest = $a; $bTest = $b;';
+		$sourceCode = '<?php ' . $startCode . str_replace('<?php','', $code);;
 		$sourceCode .= 'function ejecutarTest(){global $a, $b, $aTest, $bTest; return ($aTest == $b && $bTest == $a);}';
-		$sourceCode = str_replace('//[fin]','echo "=O=U=T="; //', $sourceCode);
+		$sourceCode .= 'if(  ejecutarTest()  ){
+    echo(\'=O=U=T=Excelente!, puedes pasar a la siguiente página.\');
+}else{
+    error_log(\'Ha fallado el test, intentalo de nuevo.\');
+}';
+
 		$executeAnswer = CodeExecutor::execute($sourceCode);
 
 		$passed = strpos($executeAnswer['output'],'=O=U=T=Excelente')===0;

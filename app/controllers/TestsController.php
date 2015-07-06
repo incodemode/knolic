@@ -49,23 +49,23 @@ class TestsController extends BaseController{
 			return Redirect::to(route('inputData_0'));
 		}
 		$code = Input::get('code');
-		$codeToExecute = $code;
-		$codeToExecute = str_replace('Excelente!', '=E=x=e=c=Exelente!', $codeToExecute);
+		$codeToExecute = str_replace('<?php', '', $code);
 		$startCode = $this->startCode($page);
-		$codeToExecute = substr_replace($codeToExecute, $startCode . '//[inicio]', strpos($codeToExecute, '//[inicio]'), strlen('//[inicio]'));// str_replace('//[inicio]', $startCode . '//[inicio]', $codeToExecute);
-		
 		$endCode = $this->endCode($page);
-		$codeToExecute = substr_replace($codeToExecute, $endCode . '//[fin]', strrpos($codeToExecute, '//[fin]'), strlen('//[fin]'));
+		$codeToExecute = '<?php ' . $startCode . $codeToExecute . $endCode;
+		$codeToExecute .= 'if(ejecutarTests()): echo "=E=x=e=c=Excelente! puedes pasar a la siguiente página.";
+else: error_log("Ocurrio un error, intentelo de nuevo.");
+endif;';
 		
 		$execution = CodeExecutor::execute($codeToExecute);
 		
 		$execution['passed'] = false;
 		$output = $execution['output']?$execution['output']:'';
 		
-		if(strpos($output, '=E=x=e=c=Exelente!' )!==false){
+		if(strpos($output, '=E=x=e=c=Excelente!' )!==false){
 			$execution['passed'] = true;
 		}
-		$execution['output'] = str_replace('=E=x=e=c=Exelente!', 'Exelente!', $execution['output']);
+		$execution['output'] = str_replace('=E=x=e=c=Excelente!', 'Excelente!', $execution['output']);
 
 		$exercise = Exercises::findOrCreate('tests', $page);
 		$exercise->storeLastRun($code, $execution['passed']);
@@ -79,17 +79,17 @@ class TestsController extends BaseController{
 			case 1:
 				return '$arr = null;';
 			case 2:
-				return '$tempArr = null;';
+				return '$arr = [1=>\'peras\', 2=>\'manzanas\']; $tempArr = null;';
 			case 3:
-				return '$tempArr = $arr; $foo = null;';
+				return '$arr = [\'primer_indice\'=>5,   \'segundo\'=>rand(10,20),   \'tercero\'=> 35];$tempArr = $arr; $foo = null;';
 			case 4:
-				return '$tempArr = $arr; $foo = null;';
+				return '$arr = [rand(0,10),    rand(0,10),     rand(0,10),     rand(0,10)]; $tempArr = $arr; $foo = null;';
 			case 5:
-				return '$tempArr = $arr; $indice = null;';
+				return '$arr = [\'primero\' => rand(0,5),   \'segundo\' => rand(0,5),   \'tercero\' =>  rand(0,5)]; $tempArr = $arr; $indice = null;';
 			case 6:
-				return '$tempArr = $arr; $indices = null;';
+				return '$arr = [rand(0,4) => \'valor uno\', rand(5,9) => \'valor dos\', rand(10,14) => \'valor tres\' ]; $tempArr = $arr; $indices = null;';
 			case 7:
-				return '$tempArr = $arr; $respuesta = null;';
+				return '$arr = [rand(0,1) => \'camisa\', rand(2,3) => \'pantalon\', rand(4,5) => \'zapatos\']; $tempArr = $arr; $respuesta = null;';
 		}
 		return '';
 	}
